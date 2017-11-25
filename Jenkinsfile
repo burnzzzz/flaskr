@@ -3,7 +3,7 @@ pipeline {
    stages {
        stage('Test') {
            steps {
-               sh 'ls -la'
+               sh 'pipelines/test.sh'
            }
        }
    }

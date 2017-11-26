@@ -8,12 +8,8 @@ RUN apt update && apt install -y --no-install-recommends \
                            && rm /var/www/html/index.html
 
 COPY . /flaskr
-COPY pipelines/files/flaskr.wsgi /var/www/flaskr/flaskr.wsgi
+RUN mkdir /var/www/flaskr
 COPY pipelines/scripts/* /
-COPY pipelines/files/flaskr.conf /etc/apache2/sites-available/flaskr.conf
-
-RUN chown -R www-data:www-data /var/www/flaskr
-RUN rm -f /etc/apache2/sites-enabled/000-default.conf && a2ensite flaskr.conf
-
+RUN rm -f /etc/apache2/sites-enabled/000-default.conf
 WORKDIR /
 ENTRYPOINT ["/entrypoint.sh"]

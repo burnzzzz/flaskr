@@ -7,7 +7,7 @@ RUN apt update && apt install -y --no-install-recommends \
                            && rm -rf /var/lib/apt/lists \
                            && rm /var/www/html/index.html
 
-COPY flaskr /var/www/flaskr
+COPY . /var/www/flaskr
 COPY pipelines/files/flaskr.wsgi /var/www/flaskr/flaskr.wsgi
 COPY pipelines/scripts/* /
 COPY pipelines/files/flaskr.conf /etc/apache2/sites-available/flaskr.conf

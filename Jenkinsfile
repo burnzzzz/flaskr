@@ -1,7 +1,6 @@
 git poll: true, url: 'https://github.com/teoyaomiqui/flaskr'
 def BUILD_CONTAINER = "${env.BUILD_CONTAINER}"
-pipeline {
-   agent { node { label 'docker' } }
+node('python') {
    stages {
        stage('Test') {
            steps {

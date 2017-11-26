@@ -5,6 +5,6 @@ def BUILD_CONTAINER = "${env.BUILD_CONTAINER}"
         sh './pipelines/test.sh'
     }
     stage('Build') {
-        sh 'echo BUILD"'
+        sh 'echo "BUILD"'
     }
 }

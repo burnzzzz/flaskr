@@ -8,11 +8,9 @@ pipeline {
                sh './pipelines/test.sh'
            }
        }
-       if(BUILD_CONTAINER) {
-           stage('Build') {
-               steps {
-                   echo "BUILD"
-               }
+       stage('Build') {
+           steps {
+               echo "BUILD"
            }
        }
    }

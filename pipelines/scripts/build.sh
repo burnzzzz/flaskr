@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+set +x
 set -e
 
 IMAGE_NAME_APACHE=${IMAGE_NAME_APACHE:-flaskr}

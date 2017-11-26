@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set +x
+
 # Building and Running tests
 
 pip install --editable .

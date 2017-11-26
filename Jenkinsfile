@@ -1,6 +1,6 @@
+git poll: true, url: 'https://github.com/teoyaomiqui/flaskr'
+def BUILD_CONTAINER = "${env.BUILD_CONTAINER}"
 pipeline {
-   git poll: true, url: 'https://github.com/teoyaomiqui/flaskr'
-   def BUILD_CONTAINER = "${env.BUILD_CONTAINER}"
    agent { node { label 'docker' } }
    stages {
        stage('Test') {

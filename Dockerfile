@@ -1,7 +1,8 @@
 FROM ubuntu:latest
 MAINTAINER Kostiantyn Kalynovskyi "kkalinovskiy@gmail.com"
 RUN apt update && apt install -y --no-install-recommends \
-                                ca-certificates apache2 python-pip python \
+                                ca-certificates apache2 python-pip \ 
+                                libapache2-mod-wsgi python \
                            && apt-get clean \
                            && rm -rf /var/lib/apt/lists \
                            && rm /var/www/html/index.html

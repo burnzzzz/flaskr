@@ -1,4 +1,4 @@
-node('python') {
+node('python&&docker') {
 git poll: true, url: 'https://github.com/teoyaomiqui/flaskr'
 def BUILD_CONTAINER = "${env.BUILD_CONTAINER}"
     stage('Test') {

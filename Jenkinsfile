@@ -6,7 +6,7 @@ def BUILD_CONTAINER = "${env.BUILD_CONTAINER}"
     }
     if(BUILD_CONTAINER) {
         stage('Build') {
-            sh 'echo "BUILD"'
+            sh 'echo $BUILD_CONTAINER'
         }
     }
 }

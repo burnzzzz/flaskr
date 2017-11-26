@@ -1,6 +1,18 @@
 FROM ubuntu:latest
 MAINTAINER Kostiantyn Kalynovskyi "kkalinovskiy@gmail.com"
-RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential
-COPY . /app
-WORKDIR /app
+RUN apt update && apt install -y --no-install-recommends \
+                                ca-certificates apache2 python-pip python \
+                           && apt-get clean \
+                           && rm -rf /var/lib/apt/lists \
+                           && rm /var/www/html/index.html
+
+COPY flaskr /var/www/flaskr
+COPY pipelines/files/flaskr.wsgi /var/www/flaskr/flaskr.wsgi
+COPY pipelines/scripts/* /
+COPY pipelines/files/flaskr.conf /etc/apache2/sites-available/flaskr.conf
+
+RUN chown -R www-data:www-data /var/www/flaskr
+RUN rm -f /etc/apache2/sites-enabled/000-default.conf && a2ensite flaskr.conf
+
+WORKDIR /
+ENTRYPOINT ["/entrypoint.sh"]

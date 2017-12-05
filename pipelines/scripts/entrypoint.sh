@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export FLASK_APP=flaskr
+
 source ci_lib.sh
 cd /flaskr
 build

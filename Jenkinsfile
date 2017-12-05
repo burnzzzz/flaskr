@@ -4,10 +4,9 @@ def BUILD_CONTAINER = "${env.BUILD_CONTAINER}"
     stage('Test') {
         sh './pipelines/scripts/test.sh'
     }
-    echo(BUILD_CONTAINER)
     if(BUILD_CONTAINER.toLowerCase() == "true") {
         stage('Build Container') {
-            sh './pipelines/scripts/build.sh'
+            sh './pipelines/scripts/build_and_push_container.sh'
         }
     }
 }
